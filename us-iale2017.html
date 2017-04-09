@@ -142,7 +142,14 @@ fully integrated into a general-purpose GIS and remote sensing tool.
         container types:
         <ul>
             <li>imagery groups
+                <ul>
+                    <li>series of 2D rasters
+                </ul>
             <li>spatio-temporal datasets
+                <ul>
+                    <li>series of 2D rasters
+                    <small>(or vectors or 3D rasters)</small>
+                </ul>
         </ul>
 </ul>
 <br>
@@ -215,24 +222,30 @@ r3.colors map=b color=viridis
 
 
 <section>
-    <h3></h3>
+    <h3>Binning, moving window &amp; raster algebra</h3>
 
-<pre class="bash" style="width: 70%;"><code>r3.in.lidar input=points.las n=count base_raster=ground -d class_filter=3,4,5
+<pre class="bash" style="width: 70%;"><code># Bash
+r3.in.lidar input=points.las n=count base_raster=ground -d class_filter=3,4,5
 r3.neighbors input=count output=average method=average window=3,3,3
 r3.mapcalc expression="buffer = if(average > 0, 1, 0)"
 </code></pre>
 
     <img class="stretch" src="img/profile2d_presence.png">
+    <img style="width: 10%;" src="img/count_legend.png">
 </section>
 
 
 <section>
-    <h3></h3>
+    <h3>Fragmentation index</h3>
 
-<pre class="bash" style="width: 50%;"><code>r3.forestfrag input=buffer output=fragmentation
+<pre class="python" style="width: 70%;"><code># Python
+import grass.script as gs
+gs.run_command("g.extension", extension="r3.forestfrag")
+gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
 </code></pre>
 
     <img class="stretch" src="img/profile2d_ff.png">
+    <img style="width: 20%;" src="img/ff_legend.png">
 </section>
 
 
