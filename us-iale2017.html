@@ -19,31 +19,42 @@
 
 
 <section>
-<h2></h2>
-3D rasters (aka voxel models) have been used to represent and process
+<h2>3D rasters</h2>
+<p>
+3D rasters have been used to represent and process
 hyperspectral data,
 describe forest and habitat properties,
 analyze measured spatio-temporal data,
 or explore simulation scenario space.
+</p>
 <ul>
-    <li>
+    <li><strong>3D raster</strong> - Voxel space - 3D voxel grid - Voxel model
+    <li><strong>[3D] cell</strong> - Voxel - 3D voxel unit - Volumetric pixel
 </ul>
 </section>
 
 
 <section>
-<h2></h2>
-2D and 2.5D does not explicitly represent and model 3D relationships
-in fully 3D systems such as forest ecosystems.
-3D rasters on the other hand, preserve the original relationships in the 3D data.
+<div class="left">
+    <h3>Series of 2D rasters</h3>
 <ul>
-    <li>
+    <li>2D does not explicitly represent and model 3D relationships
+    <li>2D rasters accessible individually
 </ul>
+</div>
+<div class="right">
+    <h3>3D raster</h3>
+    <ul>
+        <li>explicit 3D relationships
+        <li>unified access to all 3 dimensions
+        <li>needs to be sliced to get 2D rasters
+    </ul>
+</div>
 </section>
 
 
 <section>
-<h2></h2>
+<h3>Third dimension</h3>
 The relationships in the third dimension may be different from the first two dimensions
 which distinguishes 3D rasters from 2D rasters.
 <ul>
@@ -128,26 +139,27 @@ b = 3 * a
 
 <section>
 <h2>GRASS GIS</h2>
-We will demonstrate 3D raster algebra in GRASS GIS as an example of 3D raster processing
-fully integrated into a general-purpose GIS and remote sensing tool.
+<p>
+    <em>general-purpose geospatial analysis and remote sensing tool</em>
+</p>
 <ul>
     <li>
         data types:
         <ul>
             <li>vectors
             <li>2D rasters
-            <li>3D rasters
+            <li><strong>3D rasters</strong>
         </ul>
     <li>
         container types:
         <ul>
             <li>imagery groups
                 <ul>
-                    <li>series of 2D rasters
+                    <li><strong>series of 2D rasters</strong>
                 </ul>
             <li>spatio-temporal datasets
                 <ul>
-                    <li>series of 2D rasters
+                    <li><strong>series of 2D rasters</strong>
                     <small>(or vectors or 3D rasters)</small>
                 </ul>
         </ul>
@@ -272,21 +284,15 @@ g.list type=raster pattern="count_*"
 
 
 <section>
-<h2></h2>
-we will look not only at the processing but also at the visualization of 3D rasters.
-<ul>
-    <li>
-</ul>
+<h2>Example: Behavioral patterns</h2>
+spatio-temporal data representing behavioral patterns of people in urban environments
+<br>
+<img src="img/amos_animation.gif" class="stretch">
 </section>
 
 
 <section>
-<h2></h2>
-Finally, we will show how to use
-Python and
-Bash scripting or
-visual programming
-to make the best use of 3D rasters.
+<h2>Visual programming</h2>
 <ul>
     <li>
 </ul>
