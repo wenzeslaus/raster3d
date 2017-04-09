@@ -36,6 +36,12 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+
+        <style>
+            pre {
+                font-size: 100% !important;
+            }
+        </style>
     </head>
 
     <body>
@@ -52,7 +58,7 @@
     <p class="title-foot">
         <a href="http://www.ncsu.edu/" title="North Carolina State University">NCSU</a>
         <a href="http://geospatial.ncsu.edu/osgeorel/" title="NCSU OSGeo Research and Education Laboratory">OSGeoREL</a>
-        at
+        at the
         <a href="http://geospatial.ncsu.edu/" title="Center for Geospatial Analytics">Center for Geospatial Analytics</a>
         <br>
         North Carolina State University
@@ -67,16 +73,21 @@
 <section>
 <h2>3D rasters</h2>
 <p>
-3D rasters have been used to represent and process
+Usage:
 hyperspectral data,
-describe forest and habitat properties,
-analyze measured spatio-temporal data,
-or explore simulation scenario space.
+analysis of spatio-temporal data,
+forest and habitat properties,
+exploration of simulation scenario space
 </p>
 <ul>
     <li><strong>3D raster</strong> - Voxel space - 3D voxel grid - Voxel model
     <li><strong>[3D] cell</strong> - Voxel - 3D voxel unit - Volumetric pixel
 </ul>
+<img src="img/raster3d_layout.png" class="stretch">
+<p class="credit">
+    Image credit:
+    <a href="https://grass.osgeo.org/grass72/manuals/raster3dintro.html">GRASS Development Team</a>
+</p>
 </section>
 
 
@@ -101,10 +112,12 @@ or explore simulation scenario space.
 
 <section>
 <h3>Third dimension</h3>
-The relationships in the third dimension may be different from the first two dimensions
+The relationships in the third dimension may be different from
 which distinguishes 3D rasters from 2D rasters.
 <ul>
-    <li>
+    <li>The first two dimensions are the same as in 2D.
+    <li>Third dimension can be in space, time, or scenario space.
+    <li>Mind the possible anisotropy in the Z direction.
 </ul>
 </section>
 
@@ -124,7 +137,7 @@ and there are tools available to process them including Python, R, or Octave.
 <ul>
     <li>using NumPy array
 </ul>
-<pre class="python" style="width: 30%;"><code>x = array([[[ 0,  1,  2],
+<pre class="python" style="width: 50%;"><code>x = array([[[ 0,  1,  2],
             [ 3,  4,  5],
             [ 6,  7,  8]],
            [[ 9, 10, 11],
@@ -147,7 +160,7 @@ x.sum(axis=0)
 <ul>
     <li>using array
 </ul>
-<pre class="r" style="width: 30%;"><code>x = array(1:40, dim=c(2,4,5))
+<pre class="r" style="width: 50%;"><code>x = array(1:40, dim=c(2,4,5))
 # , , 1
 #
 #      [,1] [,2] [,3] [,4]
@@ -169,7 +182,7 @@ x[2,3,3] = 0
 <ul>
     <li>using 3D matrix/array
 </ul>
-<pre class="octave" style="width: 30%;"><code>x = reshape(1:8, 2, 2, 2)
+<pre class="octave" style="width: 50%;"><code>x = reshape(1:8, 2, 2, 2)
 a(2,1,1) = 5
 b = 3 * a
 # b =
@@ -220,13 +233,13 @@ b = 3 * a
 
 <h3>2D</h3>
 
-<pre class="bash" style="width: 50%;"><code>r.neighbors input=a output=b method=average size=5
+<pre class="bash" style="width: 100%;"><code>r.neighbors input=a output=b method=average size=5
 r.colors map=b color=viridis
 </code></pre>
 
 <h3>3D</h3>
 
-<pre class="bash" style="width: 50%;"><code>r3.neighbors input=a output=b method=average window=5,5,5
+<pre class="bash" style="width: 100%;"><code>r3.neighbors input=a output=b method=average window=5,5,5
 r3.colors map=b color=viridis
 </code></pre>
 
@@ -236,13 +249,13 @@ r3.colors map=b color=viridis
 <section>
 <h2>3D raster algebra</h2>
 
-<pre style="width: 30%;"><code>b = a + 2
+<pre style="width: 55%;"><code>b = a + 2
 </code></pre>
 
-<pre style="width: 30%;"><code>b = if(a > 20, 1, null())
+<pre style="width: 55%;"><code>b = if(a > 20, 1, null())
 </code></pre>
 
-<pre style="width: 30%;"><code>b = (a[0,0,-1] + a[0,0,1]) / 2
+<pre style="width: 55%;"><code>b = (a[0,0,-1] + a[0,0,1]) / 2
 </code></pre>
 
 </section>
@@ -252,6 +265,13 @@ r3.colors map=b color=viridis
 <h2>Example: Terrain evolution</h2>
 <img src="img/jr16animation.gif" class="left">
 <img src="img/jr20animation.gif" class="right">
+<img src="img/raster3d_from_2d.png" class="stretch box-glow">
+<p class="credit">
+    <small>
+    Image credit:
+    <a href="https://grass.osgeo.org/grass72/manuals/r.to.rast3.html">GRASS Development Team</a>
+    </small>
+</p>
 </section>
 
 
@@ -282,7 +302,7 @@ r3.colors map=b color=viridis
 <section>
     <h3>Binning, moving window &amp; raster algebra</h3>
 
-<pre class="bash" style="width: 70%;"><code># Bash
+<pre class="bash" style="width: 100%; font-size: 75% !important;"><code># Bash
 r3.in.lidar input=points.las n=count base_raster=ground -d class_filter=3,4,5
 r3.neighbors input=count output=average method=average window=3,3,3
 r3.mapcalc expression="buffer = if(average > 0, 1, 0)"
@@ -296,7 +316,7 @@ r3.mapcalc expression="buffer = if(average > 0, 1, 0)"
 <section>
     <h3>Fragmentation index</h3>
 
-<pre class="python" style="width: 70%;"><code># Python
+<pre class="python" style="width: 100%; font-size: 85% !important;"><code># Python
 import grass.script as gs
 gs.run_command("g.extension", extension="r3.forestfrag")
 gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
@@ -318,7 +338,7 @@ gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
 
 <img style="width: 20%;" src="img/count_categories.png">
 
-<pre class="bash" style="width: 70%;"><code># Bash
+<pre class="bash" style="width: 90%;"><code># Bash
 r3.count.categories input=fragmentation output=count
 g.list type=raster pattern="count_*"
 </code></pre>
