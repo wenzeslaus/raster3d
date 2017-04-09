@@ -256,10 +256,18 @@ gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
 
 
 <section>
-<h2>Example: Behavioral patterns</h2>
-spatio-temporal data representing behavioral patterns of people in urban environments
-<br>
-<img src="img/amos_animation.gif" class="stretch">
+    <h3>Back to 2D</h3>
+
+<img style="width: 20%;" src="img/count_categories.png">
+
+<pre class="bash" style="width: 70%;"><code># Bash
+r3.count.categories input=fragmentation output=count
+g.list type=raster pattern="count_*"
+</code></pre>
+
+    <img class="stretch" src="img/relative_count.png">
+    <br>
+
 </section>
 
 
