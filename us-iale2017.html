@@ -2,7 +2,8 @@
     <h2>3D rasters are powerful</h2>
     <h3> and you already know how to use them</h3>
     <h3 style="margin-top: 0.5em">
-        Vaclav (Vashek) Petras</h3>
+        Vaclav (Vashek) Petras,</h3>
+    <h4>Anna Petrasova and Helena Mitasova
     <p class="title-foot">
         <a href="http://www.ncsu.edu/" title="North Carolina State University">NCSU</a>
         <a href="http://geospatial.ncsu.edu/osgeorel/" title="NCSU OSGeo Research and Education Laboratory">OSGeoREL</a>
@@ -22,6 +23,9 @@
 <h2>3D rasters</h2>
 <p>
 Usage:
+soil properties,
+concentrations in water bodies,
+properties of air mass,
 hyperspectral data,
 analysis of spatio-temporal data,
 forest and habitat properties,
@@ -46,6 +50,7 @@ exploration of simulation scenario space
     <li>2D does not explicitly represent and model 3D relationships
     <li>2D rasters accessible individually
 </ul>
+<img src="img/raster2d_series.png" style="width: 100%;">
 </div>
 <div class="right">
     <h3>3D raster</h3>
@@ -54,29 +59,25 @@ exploration of simulation scenario space
         <li>unified access to all 3 dimensions
         <li>needs to be sliced to get 2D rasters
     </ul>
+<img src="img/raster3d_stack.png" style="width: 100%;">
 </div>
 </section>
 
 
 <section>
 <h3>Third dimension</h3>
-The relationships in the third dimension may be different from
-which distinguishes 3D rasters from 2D rasters.
 <ul>
     <li>The first two dimensions are the same as in 2D.
     <li>Third dimension can be in space, time, or scenario space.
     <li>Mind the possible anisotropy in the Z direction.
+        <br><small>(difference from 2D rasters where all directions are isotropic most of the time)</small>
 </ul>
 </section>
 
 
 <section>
-<h2></h2>
-Other than that, 3D rasters are very similar to the commonly used 2D rasters
-and there are tools available to process them including Python, R, or Octave.
-<ul>
-    <li>
-</ul>
+<h2>Working with 3D rasters</h2>
+Not that different from 2D rasters, images, and matrices
 </section>
 
 
@@ -210,15 +211,53 @@ r3.colors map=b color=viridis
 
 
 <section>
+<h2>Visual programming</h2>
+<ul>
+    <li>graphical modeler
+    <li>graphical raster calculator
+</ul>
+<img src="img/graphical_modeler.png" class="stretch">
+</section>
+
+
+<section>
+<h2>Example: Terrain evolution</h2>
+<img src="img/jr_animation_2d.gif" class="stretch">
+</section>
+
+
+<section>
 <h2>Example: Terrain evolution</h2>
 <img src="img/jr16animation.gif" class="left">
 <img src="img/jr20animation.gif" class="right">
-<img src="img/raster3d_from_2d.png" class="stretch box-glow">
+<img src="img/raster3d_from_2d.png" class="stretch">
 <p class="credit">
     <small>
     Image credit:
     <a href="https://grass.osgeo.org/grass72/manuals/r.to.rast3.html">GRASS Development Team</a>
     </small>
+</p>
+</section>
+
+
+<section>
+<h2>Example: Behavioral patterns</h2>
+<img src="img/amos_animation_2d.gif" class="stretch">
+<p>
+Petrasova
+</p>
+</section>
+
+
+<section>
+<h2>Example: Behavioral patterns</h2>
+spatio-temporal data representing behavioral patterns of people in urban environment
+<br>
+<img src="img/amos_animation_3d.gif" class="stretch">
+<p>
+<small>
+Petrasova
+</small>
 </p>
 </section>
 
@@ -232,6 +271,7 @@ r3.colors map=b color=viridis
     In: Open Geospatial Data, Software and Standards [in print]
 </small>
 <img src="img/fragmentation_paper.png" class="stretch box-glow">
+<p class="credit">3D version of forest fragmentation index by Riitters et al.</p>
 </section>
 
 
@@ -264,13 +304,15 @@ r3.mapcalc expression="buffer = if(average > 0, 1, 0)"
 <section>
     <h3>Fragmentation index</h3>
 
-<pre class="python" style="width: 100%; font-size: 85% !important;"><code># Python
+<pre class="python" style="width: 97%; font-size: 85% !important;"><code># Python
 import grass.script as gs
 gs.run_command("g.extension", extension="r3.forestfrag")
 gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
 </code></pre>
 
-    <img class="stretch" src="img/profile2d_ff.png">
+    <!-- stretch does not work well here -->
+    <img style="width: 100%;" src="img/profile2d_ff.png">
+    <br>
     <img style="width: 20%;" src="img/ff_legend.png">
 </section>
 
@@ -296,18 +338,32 @@ g.list type=raster pattern="count_*"
 
 </section>
 
-
 <section>
-<h2>Example: Behavioral patterns</h2>
-spatio-temporal data representing behavioral patterns of people in urban environments
-<br>
-<img src="img/amos_animation.gif" class="stretch">
-</section>
-
-
-<section>
-<h2>Visual programming</h2>
+    <h3>Conclusion</h3>
 <ul>
-    <li>
+    <li>there is a third dimension
+    <li>3D rasters can handle it
+    <li>use the tool you know
+    <li>pick the tool closest to what you know
 </ul>
+
+<p style="text-align: left; width: 40%; margin-left: auto; margin-right: auto;">
+    <img src="img/logos/grassgis.svg" style="width: 10%; vertical-align: middle;">
+    GRASS GIS
+    <a href="http://grass.osgeo.org">grass.osgeo.org</a>
+    <br>
+    <img src="img/logos/python.svg" style="width: 10%; vertical-align: middle;">
+    Python
+    <a href="http://python.org">python.org</a>
+    <br>
+    <img src="img/logos/r.svg" style="width: 10%; vertical-align: middle;">
+    R
+    <a href="https://www.r-project.org/">r-project.org</a>
+    <br>
+    <img src="img/logos/octave.svg" style="width: 10%; vertical-align: middle;">
+    Octave
+    <a href="https://www.gnu.org/software/octave/">octave.org</a>
+</p>
+<p>
+    <a href="https://github.com/wenzeslaus">github.com/wenzeslaus</a>
 </section>
