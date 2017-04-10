@@ -1,12 +1,12 @@
 <section>
     <h2>3D rasters are powerful</h2>
-    <h3> and you already know how to use them</h3>
+    <h3 style="margin-top: -0.5em">and you already know how to use them</h3>
     <h3 style="margin-top: 0.5em">
         Vaclav (Vashek) Petras,</h3>
-    <h4>Anna Petrasova and Helena Mitasova
+    <h4 style="margin-top: -0.7em">Anna Petrasova and Helena Mitasova
     <p class="title-foot">
         <a href="http://www.ncsu.edu/" title="North Carolina State University">NCSU</a>
-        <a href="http://geospatial.ncsu.edu/osgeorel/" title="NCSU OSGeo Research and Education Laboratory">OSGeoREL</a>
+        <a href="http://geospatial.ncsu.edu/osgeorel/" title="NCSU GeoForAll Lab">GeoForAll Lab</a>
         at the
         <a href="http://geospatial.ncsu.edu/" title="Center for Geospatial Analytics">Center for Geospatial Analytics</a>
         <br>
@@ -29,7 +29,8 @@ properties of air mass,
 hyperspectral data,
 analysis of spatio-temporal data,
 forest and habitat properties,
-exploration of simulation scenario space
+exploration of simulation scenario space,
+etc.
 </p>
 <ul>
     <li><strong>3D raster</strong> - Voxel space - 3D voxel grid - Voxel model
@@ -70,8 +71,9 @@ exploration of simulation scenario space
     <li>The first two dimensions are the same as in 2D.
     <li>Third dimension can be in space, time, or scenario space.
     <li>Mind the possible anisotropy in the Z direction.
-        <br><small>(difference from 2D rasters where all directions are isotropic most of the time)</small>
+        <br><small>(different from 2D rasters where all directions are isotropic most of the time)</small>
 </ul>
+<img src="img/axes.png" class="stretch">
 </section>
 
 
@@ -242,9 +244,13 @@ r3.colors map=b color=viridis
 
 <section>
 <h2>Example: Behavioral patterns</h2>
+presence of people over time in camera view
 <img src="img/amos_animation_2d.gif" class="stretch">
 <p>
-Petrasova
+Petrasova A., Hipp, A.J., Mitasova, H.,
+<em>Using space-time cube for visualization and analysis of active
+transportation patterns derived from public webcams</em>.
+ICC 2017, Washington DC 2-7th July
 </p>
 </section>
 
@@ -254,11 +260,11 @@ Petrasova
 spatio-temporal data representing behavioral patterns of people in urban environment
 <br>
 <img src="img/amos_animation_3d.gif" class="stretch">
-<p>
-<small>
-Petrasova
-</small>
-</p>
+<br>
+Petrasova A., Hipp, A.J., Mitasova, H.,
+<em>Using space-time cube for visualization and analysis of active
+transportation patterns derived from public webcams</em>.
+ICC 2017, Washington DC 2-7th July
 </section>
 
 
@@ -343,8 +349,7 @@ g.list type=raster pattern="count_*"
 <ul>
     <li>there is a third dimension
     <li>3D rasters can handle it
-    <li>use the tool you know
-    <li>pick the tool closest to what you know
+    <li>use the tool you know, or pick one
 </ul>
 
 <p style="text-align: left; width: 40%; margin-left: auto; margin-right: auto;">
