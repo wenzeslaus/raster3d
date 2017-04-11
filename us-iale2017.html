@@ -543,10 +543,6 @@ g.list type=raster pattern="count_*"
 
                 // Parallax background size
                 //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
-                chalkboard: { 
-        		// optionally load pre-recorded chalkboard drawing from file
-            		src: "chalkboard.json",
-            	},
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
                     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -557,14 +553,7 @@ g.list type=raster pattern="count_*"
                     { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
                     /*{ src: 'plugin/math/math.js', async: true },*/
                     /*{ src: 'plugin/chalkboard/chalkboard.js' }*/
-                ],
-                keyboard: {
-            	    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
-            	    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
-            	    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
-            	     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-            	    68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
-            	},
+                ]
             });
 
         </script>
