@@ -200,11 +200,17 @@ r3.colors map=b color=viridis
 <section>
 <h2>3D raster algebra</h2>
 
+Addition
+
 <pre style="width: 55%;"><code>b = a + 2
 </code></pre>
 
+Conditional expression
+
 <pre style="width: 55%;"><code>b = if(a > 20, 1, null())
 </code></pre>
+
+Accessing neighboring cells
 
 <pre style="width: 55%;"><code>b = (a[0,0,-1] + a[0,0,1]) / 2
 </code></pre>
@@ -218,6 +224,7 @@ r3.colors map=b color=viridis
     <li>graphical modeler
     <li>graphical raster calculator
 </ul>
+<br>
 <img src="img/graphical_modeler.png" class="stretch">
 </section>
 
@@ -257,7 +264,7 @@ ICC 2017, Washington DC 2-7th July
 
 <section>
 <h2>Example: Behavioral patterns</h2>
-spatio-temporal data representing behavioral patterns of people in urban environment
+spatio-temporal data representing movement of people in urban environment
 <br>
 <img src="img/amos_animation_3d.gif" class="stretch">
 <br>
@@ -284,12 +291,14 @@ ICC 2017, Washington DC 2-7th July
 <section>
     <h3>3D index of 3D raster</h3>
     <img class="stretch" src="img/raster3d.png">
+    <p class="credit">Petras et al. 2017 [in print]</p>
 </section>
 
 
 <section>
     <h3>Point cloud</h3>
     <img class="stretch" src="img/points3d.png">
+    <p class="credit">Petras et al. 2017 [in print]</p>
 </section>
 
 
@@ -304,6 +313,7 @@ r3.mapcalc expression="buffer = if(average > 0, 1, 0)"
 
     <img class="stretch" src="img/profile2d_presence.png">
     <img style="width: 10%;" src="img/count_legend.png">
+    <p class="credit">Petras et al. 2017 [in print]</p>
 </section>
 
 
@@ -317,15 +327,17 @@ gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
 </code></pre>
 
     <!-- stretch does not work well here -->
-    <img style="width: 100%;" src="img/profile2d_ff.png">
+    <img style="width: 100%; margin-bottom: 0em;" src="img/profile2d_ff.png">
     <br>
-    <img style="width: 20%;" src="img/ff_legend.png">
+    <img style="width: 20%; margin-top: 0em;" src="img/ff_legend.png">
+    <p class="credit">Petras et al. 2017 [in print]</p>
 </section>
 
 
 <section>
     <h3>Profile of 3D raster</h3>
     <img class="stretch" src="img/profiles3d.png">
+    <p class="credit">Petras et al. 2017 [in print]</p>
 </section>
 
 
@@ -334,14 +346,14 @@ gs.run_command("r3.forestfrag", input="buffer", output="fragmentation")
 
 <img style="width: 20%;" src="img/count_categories.png">
 
-<pre class="bash" style="width: 90%;"><code># Bash
+<pre class="bash" style="width: 75%; font-size: 80% !important;"><code># Bash
+g.extension r3.count.categories
 r3.count.categories input=fragmentation output=count
 g.list type=raster pattern="count_*"
 </code></pre>
 
     <img class="stretch" src="img/relative_count.png">
-    <br>
-
+    <p class="credit">Petras et al. 2017 [in print]</p>
 </section>
 
 <section>
